@@ -1,0 +1,35 @@
+<form class="example-form" [formGroup]="form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControlName]="'email'" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="form.get('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Passsword</mat-label>
+    <input type="password" matInput [formControlName]="'password'" placeholder="Password">
+    <mat-error *ngIf="form.get('password').hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="example-button-row">
+    <button (click)="click()" mat-raised-button>click</button>
+  </div>
+  <a [routerLink]="'/registration'"><b>to registration</b></a>
+</form>
+<br>
+<div *ngIf="auth.user | async as user; else showLogin">
+  <div class="example-button-row">
+    <button (click)="logout()" mat-raised-button>Logout</button>
+  </div>
+</div>
+<ng-template #showLogin>
+  <div class="example-button-row">
+    <button (click)="login()" mat-raised-button>Login with Google</button>
+  </div>
+</ng-template>

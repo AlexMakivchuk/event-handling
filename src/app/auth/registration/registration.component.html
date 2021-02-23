@@ -1,0 +1,63 @@
+<form class="example-form" [formGroup]="form">
+  <div class="" *ngIf="authError">
+    <span class="">
+      {{ authError?.message }}
+    </span>
+  </div>
+
+  <mat-form-field class="example-half-width mr-5">
+    <mat-label>Name</mat-label>
+    <input matInput [formControlName]="'firstname'" placeholder="Name">
+    <mat-error *ngIf="form.get('firstname').hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-half-width ml-5">
+    <mat-label>Lastname</mat-label>
+    <input matInput [formControlName]="'lastname'" placeholder="Lastname">
+    <mat-error *ngIf="form.get('lastname').hasError('required')">
+      Lastname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControlName]="'email'" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="form.get('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Passsword</mat-label>
+    <input type="password" matInput [formControlName]="'password'" placeholder="Password">
+    <mat-error *ngIf="form.get('password').hasError('required') && !form.get('password').hasError('minLength')">
+      Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="form.get('password').hasError('minlength')">
+      min length 6 symbols
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Acceptpass</mat-label>
+    <input type="password" matInput [formControlName]="'acceptpass'" placeholder="Password">
+    <mat-error *ngIf="form.get('acceptpass').hasError('required') && !form.get('acceptpass').hasError('minLength')">
+      Password is <strong>required</strong>
+    </mat-error>
+
+    <mat-error *ngIf="form.get('acceptpass').hasError('minlength')">
+      min length 6 symbols
+    </mat-error>
+  </mat-form-field>
+  <div class="example-button-row">
+    <button (click)="click()" mat-raised-button>Create User</button>
+  </div>
+  <br>
+  <p>click to <a [routerLink]="'/login'"><b>Login</b></a></p>
+</form>
+

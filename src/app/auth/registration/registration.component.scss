@@ -1,0 +1,48 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-half-width {
+  width: 49%;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+:host {
+  display: block;
+  margin: 100px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+div {
+
+  .error {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .error-message {
+    color: red;
+  }
+}
